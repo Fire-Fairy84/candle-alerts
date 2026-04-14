@@ -1,0 +1,14 @@
+.env
+*.env
+.env.local
+.env*.local
+frontend/.env.local
+frontend/.env*.local
+.claude/settings.local.json
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.venv/
+*.egg-info/
+dist/
