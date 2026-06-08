@@ -4,6 +4,8 @@
 
 Fetches OHLCV data from multiple exchanges on a schedule, computes technical indicators, evaluates configurable screening rules, and delivers alerts via Telegram. Includes a REST API and a Next.js dashboard.
 
+> Portfolio note: this standalone repository is a focused extraction of the alerting and dashboard layer from the larger [Polymarket Bot & Candle automation system](https://github.com/Fire-Fairy84/polymarket_bot). It keeps the crypto screener independently readable, testable, and deployable.
+
 ![Python](https://img.shields.io/badge/python-3.12+-blue)
 ![Tests](https://img.shields.io/badge/tests-155%20passing-brightgreen)
 ![Deploy](https://img.shields.io/badge/deploy-Railway-blueviolet)
@@ -14,6 +16,12 @@ Fetches OHLCV data from multiple exchanges on a schedule, computes technical ind
 ## Why this project exists
 
 Most crypto alert tools are black boxes: you configure a rule in a UI and hope it fires correctly. Candle's screening rules are explicit Python functions with real test fixtures — every condition is readable, testable, and version-controlled. The entire stack runs on infrastructure you control, with no dependency on third-party SaaS beyond the exchange APIs themselves.
+
+---
+
+## Portfolio scope
+
+This repo intentionally focuses on the market-data, alerting, API, and dashboard surface. The broader Polymarket automation, live maker strategy, on-chain redemption flow, and risk controls live in the upstream [`polymarket_bot`](https://github.com/Fire-Fairy84/polymarket_bot) repository.
 
 ---
 
@@ -114,7 +122,7 @@ Data flows in one direction: exchange → DB → screener → alert. The API and
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/Fire-Fairy84/candle.git && cd candle
+git clone https://github.com/Fire-Fairy84/candle-alerts.git && cd candle-alerts
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
